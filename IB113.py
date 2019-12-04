@@ -100,6 +100,8 @@ print(recur_factorial(5))
 
 # Pro zadaný text S vypište:
 # informaci o tom, zda text obsahuje víckrát A nebo B
+    #TOTO JE SKOR FREKVENCNI ANALYZA NIE? 
+    #ANYWAY, AJ TAK NEVIEM CO SA V TOM ZADANI ODO MNA CHCE :D
 import re
 def freq_analysis(text):  # Naivne vypéše počet slov, upraviť podla potreby 
     word_list = re.split(" ", text)
