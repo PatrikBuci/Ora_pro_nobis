@@ -1,19 +1,86 @@
 # Vypište prvních N členů následujících posloupností:
 # lichá čísla
+def kek_1(N):
+    for i in range(1, N, 2):
+        print(i)
+        
 # mocniny dvojky
-# druhé mocniny
+def kek_2(N):
+    for i in range(1, N):
+        print(2**i)
+        
+# druhé mocniny   ????? of what 
 # Fibonacciho čísla
+def fibonachi(N):
+    start = [0,1]
+    for i in range(2, N):
+        start.append(start[i-1] + start[i-2])
+    print(start)
+    
 # Collatzova posloupnost
+"""
+vezmi přirozené číslo:
+pokud je sudé, vyděl jej dvěma
+pokud je liché, vynásob jej třemi a přičti jedničku
+tento postup opakuj, dokud nedostaneš číslo jedna
+"""
+def collatz(x, N):  # x je číslo z kt. to začne, N kolko sa má zobrazit
+    list = []
+    while x != 1:
+        if x % 2 == 0: # sudé
+            x = x / 2
+        else:
+            x = x * 3 + 1
+        list.append(int(x))
+    if N < len(list):
+        print(list[0:N])
+    else:
+        print(list)
 # prvočísla
 # obecná aritmetická posloupnost
+def arit_posl(x, n):    # x je velkost posunu, n kolko zobrazi
+    for i in range(1, n*x + 1, x):
+        print(i)
+        
 # obecná geometrická posloupnost
 
 # Pro zadané přirozené číslo N vypište:
 # seznam všech jeho dělitelů
+def divisors(n):
+    list = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            list.append(i)
+    return list
+print(divisors(100))
+
 # počet jeho dělitelů
+def divisors_count(n):
+    count = 0
+    for i in range(1, n + 1):
+        if n % i == 0:
+            count += 1
+    return count
+print(divisors_count(100))
+
 # největšího dělitele (menšího než N)
+def max_divisor(n):
+    list = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            list.append(i)
+    return list[len(list)-2]
+print(max_divisor(100))
+
 # ciferný součet N
 # faktoriál čísla N
+def recur_factorial(n):
+   if n == 1:
+       return n
+   else:
+       return n*recur_factorial(n-1)
+print(recur_factorial(5))
+
 # číslo N zapsané pozpátku
 # nejmenší prvočíslo větší než N
 # informaci o tom, zda je N druhou mocninou přirozeného čísla
