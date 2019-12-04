@@ -162,9 +162,52 @@ def xxx(n):
 # Pro zadané texty A, B vypište:
 # který z nich obsahuje víc znaků X
 # písmeno, které se vyskytuje v textu A, ale nevyskytuje se v textu B
+def compare_letters(A, B):
+    output = ""
+    for char in A:
+        if char not in B:
+            output += char
+    return output
+
+compare_letters("POLITIK", "MAFIAN")
+
 # zda jsou texty vzájemné přesmyčky
+def check_anagrams(A, B):
+    if sorted(A) == sorted(B):
+        return True
+    return False
+
+check_anagrams("silent", "listen")
+check_anagrams("miss", "sims")
+
 # zda texty obsahují stejná písmena
+def same_letters(A, B):
+    setA = set()
+    setB = set()
+    for char in A:
+        setA.add(char)
+    for char in B:
+        setB.add(char)
+    if setA == setB:
+        return True
+    return False
+
+same_letters("prasa", "rapas")
+
 # zazipuje řetězce ("prase" + "kos" = "pkroasse")
+def zip(A, B):
+    output = ""
+    if len(A) < len(B):
+        A, B = B, A
+    for i in range(len(A)):
+        output += A[i]
+        if i < len(B):
+            for j in range(i, i + 1):
+                output += B[j]
+    return output
+
+zip("prasa", "pes")
+zip("dilino", "vymrdanec")
 
 # Pro zadaný seznam čísel S vypočítejte:
 # medián S
