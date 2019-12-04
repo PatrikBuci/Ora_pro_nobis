@@ -100,13 +100,59 @@ print(recur_factorial(5))
 
 # Pro zadaný text S vypište:
 # informaci o tom, zda text obsahuje víckrát A nebo B
+import re
+def freq_analysis(text):  # Naivne vypéše počet slov, upraviť podla potreby 
+    word_list = re.split(" ", text)
+    freq_dict = {}
+    for word in word_list:
+        if word not in freq_dict:
+            freq_dict[word] = 1
+        else:
+            freq_dict[word] = freq_dict.get(word) + 1
+    ordered_words = sorted(freq_dict)
+    for word in ordered_words:
+        print(word, freq_dict[word])
+
+dummy = """Monty Python and Monty Python all over here."""
+freq_analysis(dummy)
 # informaci o tom, zda jde o palindrom
+
+def reverse(s):
+    return s[::-1]
+def isPalindrome(s):
+    rev = reverse(s)
+    if (s == rev):
+        return True
+    return False
+print(isPalindrome("malayalam"))
+
 # první písmena slov v textu
+def first_letter(text):
+    string_text = re.split(" ", text)
+    for word in string_text:
+        print(word[0])
+first_letter(dummy)
+
 # poslední slovo v textu
+def last_word(text):
+    string_text = re.split(" ", text)
+    print(string_text[len(string_text)-1])
+last_word(dummy)
+
 # nejdelší slovo v textu
+def longest_word(text):
+    longest = ""
+    string_text = re.split(" ", text)
+    for word in string_text:
+        if int(len(word)) > len(longest):
+            longest = word
+    print(longest)
+longest_word(dummy)
 
 # Pro zadaný text S a číslo N vypište:
 # text S, ve kterém je každé písmeno zopakováno N krát
+def xxx(n):
+    print("s"* n)
 # text S, ve kterém jsou vynechána písmena na pozicích dělitelných N
 # text S zašifrovaný Caesarovou šifrou (posun písmen v abecedě o 3)
 # text S zašifrovaný transpoziční šifrou, která otočí vždy skupiny N po sobě jdoucích písmen
@@ -122,18 +168,35 @@ print(recur_factorial(5))
 
 # Pro zadaný seznam čísel S vypočítejte:
 # medián S
+def median(list):
+    new_list = sorted(list)
+    if len(new_list) % 2 == 1:
+        return new_list[int(round(len(new_list)/2)-1)]
+    else:
+        return (new_list[int(round(len(new_list)/2))] + new_list[int(round(len(new_list)/2)-1)]) / 2
+my_list = [1,2,3,4,5,6,7,8]
+print(median(my_list))
+
 # průměr S
 # součin kladných čísel v S
 # počet prvočísel v S
-# třetí nejvyšší číslo v S
+# třetí nejvyšší číslo v S  --> sorted(list) -> [len(list)-3]
 # nejvyšší součet dvou po sobě jdoucích čísel v S
 
 # Napište funkci, která pro zadaný seznam čísel S vrátí seznam obsahující:
-# čísla v seznamu S seřazená od nejvyššího po nejmenší
+# čísla v seznamu S seřazená od nejvyššího po nejmenší  ->sorted() / .sort
 # lichá čísla v seznamu S seřazená od nejmenšího po největší 
-# všechna čísla v S vynásobená třemi
-# každé druhé číslo z S
+# všechna čísla v S vynásobená třemi  --> loop   for i in range(len(s))   \n   new_list.append(list[i]*3)
+# každé druhé číslo z S   for i in range(0, len(s), 2)    new_list.append(list[i])
 # čísla na sudých pozicích vynásobená pěti, čísla na lichých pozicích vydělená pěti
+def xyz(my_list):
+    for i in range(len(my_list)):
+        if my_list[i] % 2 == 0:
+            my_list[i] = my_list[i] * 5
+        else:
+            my_list[i] = my_list[i] * 3
+    print(my_list)
+xyz(my_list)
 # čísla z S, která jsou dělitelná pěti
 # dvojnásobný počet čísel, každé číslo z S je duplikováno
 
@@ -154,7 +217,7 @@ print(recur_factorial(5))
 # jedničky po okrajích, dvojky vedle okrajů a tak dále
 
 # Pro zadanou matici čísel (seznam seznamů) vypište:
-# souřadnice největšího prvku
+# souřadnice největšího prvku  -> loop in loop  a do vairable is vzdy uložíš novu naj. premmenu, po skončení oboch cyklov list.index(naj hodnota)
 # řádek s největším součtem
 # transponovanou matici
 
